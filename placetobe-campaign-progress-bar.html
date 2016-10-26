@@ -17,42 +17,37 @@ Placetobe Campaign Progress Bar
       }
 
       :host section {
-        display: flex;
-        flex-direction: column;
+        @apply(--placetobe-flex-layout--vertical)
       }
 
       :host([text-below]) section {
-        flex-direction: column-reverse;
+        @apply(--placetobe-flex-layout--vertical-reverse)
       }
 
       :host section .container.
       :host section h6 {
-        flex: 1;
+        @apply(--placetobe-flex-item--1);
       }
 
       :host .container {
+        @apply(--placetobe-border-box);
+        @apply(--placetobe-border-radius);
         background-color: var(--placetobe-campaign-progress-bar-background-color, white);
         height: 9px;
         width: 100%;
-        border-radius: 8px;
-        box-sizing: border-box;
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        -ms-box-sizing: border-box;
-        -o-box-sizing: border-box;
       }
 
       :host #progress-bar {
+        @apply(--placetobe-border-radius);
         background-color: var(--placetobe-campaign-progress-bar-tint-color, var(--placetobe-color-green));
         height: 100%;
         position: relative;
-        border-radius: 8px;
       }
 
       :host #progress-bar:after {
         position: absolute;
-        width: 17px;
-        height: 17px;
+        width: var(--placetobe-margin);
+        height: var(--placetobe-margin);
         right: -9px;
         top: -4px;
         content: "";
