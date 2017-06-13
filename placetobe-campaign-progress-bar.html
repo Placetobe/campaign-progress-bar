@@ -25,6 +25,12 @@ Placetobe Campaign Progress Bar
         @apply(--placetobe-flex-layout--vertical-reverse)
       }
 
+      #slider-container {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+      }
+
       :host section h6 {
         @apply(--placetobe-flex-item--1);
       }
@@ -37,26 +43,34 @@ Placetobe Campaign Progress Bar
       }
 
       :host paper-slider {
-        width: 100%;
         margin-left: calc(-15px + calc(calc(var(--placetobe-margin)/4))*-1);
         margin-right: calc(-15px + calc(calc(var(--placetobe-margin)/4))*-1);
+        @apply --placetobe-flex-item--1;
+
         --paper-slider-knob-start-color: var(--placetobe-campaign-progress-bar-tint-color, var(--placetobe-color-green));
         --paper-slider-disabled-active-color: var(--placetobe-campaign-progress-bar-tint-color, var(--placetobe-color-green));
         --paper-slider-disabled-knob-color: var(--placetobe-campaign-progress-bar-tint-color, var(--placetobe-color-green));
         --paper-slider-container-color: var(--placetobe-campaign-progress-bar-background-color, white);
         --paper-slider-height: calc(var(--placetobe-margin)/2);
+        --paper-slider-pin-start-color: red;
+        --paper-slider-knob-start-border-color: var(--placetobe-campaign-progress-bar-background-color, white);
+        --paper-slider-knob-color: var(--placetobe-campaign-progress-bar-tint-color, var(--placetobe-color-green));
+        --paper-slider-pin-start-color:var(--placetobe-campaign-progress-bar-tint-color, var(--placetobe-color-green));
       }
     </style>
 
     <section>
       <h6>[[currentlyFundedPercentage]]% behaald</h6>
-      <paper-slider
-        min="0"
-        max="100"
-        value="[[_progressBarPercentage]]"
-        immediate-value="[[_progressBarPercentage]]"
-        disabled
-      ></paper-slider>
+      <div id="slider-container">
+        <paper-slider
+          min="0"
+          max="100"
+          value="[[_progressBarPercentage]]"
+          immediate-value="[[_progressBarPercentage]]"
+          disabled
+        ></paper-slider>
+      </div>
+      
     </section>
   </template>
 
