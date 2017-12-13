@@ -64,7 +64,7 @@ Placetobe Campaign Progress Bar
     </style>
 
     <section>
-      <h6>[[currentlyFundedPercentage]]% behaald</h6>
+      <h6>[[currentlyFundedPercentage]]% [[fundedLabel]]</h6>
       <div class="container">
         <div id="progress-bar" style$="width:[[_progressBarPercentage]]%;"></div>
       </div>
@@ -80,6 +80,14 @@ Placetobe Campaign Progress Bar
       behaviors: [PlacetobeStylesBehavior],
 
       properties: {
+        
+        /*
+        Label for currently funded
+        */
+        fundedLabel: {
+          type: String,
+          value: 'behaald'
+        },
 
         /*
         The currently funded capital
