@@ -66,7 +66,7 @@ Placetobe Campaign Progress Bar
     <section>
       <h6>[[currentlyFundedPercentage]]% [[fundedLabel]]</h6>
       <div class="container">
-        <div id="progress-bar" style$="width:[[_progressBarPercentage]]%;"></div>
+        <div id="progress-bar" style$="width:[[currentlyFundedPercentage]]%;"></div>
       </div>
     </section>
 
@@ -129,11 +129,6 @@ Placetobe Campaign Progress Bar
           type: Boolean,
           value: false,
           reflectToAttribute: true
-        },
-
-        _progressBarPercentage: {
-          type: Number,
-          computed: '_computeProgressBarPercentage(currentlyFunded, requiredFunding, maximumFunding)'
         }
 
       },
@@ -141,14 +136,8 @@ Placetobe Campaign Progress Bar
       _computePercentageFundedPercentage: function(currentlyFunded, requiredFunding) {
         if(! (currentlyFunded && requiredFunding) ) return 0;
         return Math.floor(currentlyFunded / requiredFunding * 100);
-      },
-
-      _computeProgressBarPercentage: function(currentlyFunded, requiredFunding, maximumFunding) {
-        if(!maximumFunding) return this.currentlyFundedPercentage;
-        if(! (currentlyFunded && maximumFunding) ) return 0;
-        return Math.floor(currentlyFunded / maximumFunding * 100);        
       }
-
+      
     });
   </script>
 </dom-module>
